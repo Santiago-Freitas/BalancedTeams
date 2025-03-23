@@ -1,16 +1,30 @@
-Provides as input a CSV file with name of people and their ratings. Example:
+# Balanced Teams Generator
 
-Players.csv contains
-    Daniel,100
-    Nael,95
-    Roshaan,98
+This script takes as input a CSV file containing player names and their ratings.
 
-python3 balanced_teams.py 
+## Example
+
+### **Players.csv**
+```
+Daniel,100
+Nael,95
+Roshaan,98
+```
+
+### **Running the script**
+```sh
+python3 balanced_teams.py
+```
+
+#### **Example input/output**
+```
 Enter the file path containing players and ratings: players.csv
 Enter the number of teams: 4
+```
 
 You will get back a list of balanced teams.
 
+```
 Balancing X players into Y teams.
 
 Team 1:
@@ -32,5 +46,4 @@ Team 4:
   Cesar - 100.0
   Ivaan - 93.0
   Total rating: 515.0
-
-  
+```
