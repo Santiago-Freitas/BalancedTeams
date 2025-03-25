@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balanced Teams</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h1 class="text-center">Balanced Team Generator</h1>
+    <form action="/" method="post" enctype="multipart/form-data" class="mb-3">
+        <div class="mb-3">
+            <label for="file" class="form-label">Upload CSV File:</label>
+            <input type="file" name="file" id="file" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="num_teams" class="form-label">Number of Teams:</label>
+            <input type="number" name="num_teams" id="num_teams" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Teams</button>
+    </form>
+
+    {% if teams %}
+    <h2 class="mt-4">Generated Teams</h2>
+    {% for i in range(teams|length) %}
+        <h3>Team {{ i + 1 }}</h3>
+        <ul class="list-group">
+            {% for name, rate in teams[i] %}
+                <li class="list-group-item">{{ name }} - {{ rate }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Total Rating:</strong> {{ teams[i] | sum(attribute='1') }}</p>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>
